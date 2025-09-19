@@ -146,4 +146,41 @@ pytest -q
 - Dependency list: requirements.txt
 - Example endpoints: books.py, books2.py
 
+// ...existing code...
+
+## FastAPI docs
+
+- Interactive Swagger UI: http://127.0.0.1:8000/docs
+- ReDoc: http://127.0.0.1:8000/redoc
+- OpenAPI JSON: http://127.0.0.1:8000/openapi.json
+
+Example: fetch OpenAPI spec with curl
+```sh
+curl http://127.0.0.1:8000/openapi.json
+```
+
+Customize or disable built-in docs in your FastAPI app:
+```python
+# example: change or disable docs
+from fastapi import FastAPI
+
+app = FastAPI(
+    title="My API",
+    description="Short description",
+    docs_url="/swagger",     # change swagger ui path, use None to disable
+    redoc_url=None,          # disable ReDoc
+    openapi_url="/api/openapi.json"  # change openapi json path
+)
+```
+
+Protect docs (basic idea): require an auth dependency on a docs route or run docs only in dev. For production, disable or restrict docs and serve internal docs behind a VPN.
+
+Open the docs after starting uvicorn:
+```sh
+# from Project1 folder
+cd Project1
+uvicorn books:app --reload
+# then open http://127.0.0.1:8000/docs
+```
+
 If you want this README expanded with endpoint lists or screenshots of OpenAPI docs, tell me which project to document first.
