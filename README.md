@@ -21,10 +21,6 @@ Alternative (from workspace root) — only works if Python can import Project1 a
 uvicorn Project1.books:app --reload
 
 
-jdamodhar_deloitte: create env also
-
-GitHub Copilot: Open the integrated terminal in VS Code (Ctrl+`) and run the following.
-
 1) Create and activate a virtual environment (Windows)
 
 ````powershell
@@ -72,10 +68,6 @@ Or change to the Project1 folder and run:
 cd Project1
 uvicorn books:app --reload
 ````
-
-Stop the server with Ctrl+C.
-
-jdamodhar_deloitte: make all this code to read.me
 
 Workspace: Collecting workspace information```markdown
 # FastAPI-The-Complete-Course — Workspace README
